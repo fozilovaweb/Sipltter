@@ -1,13 +1,13 @@
 import React from "react";
-import Title from "./components/Titel";
-import Form from "./components/Form";
+import { Form, Title, ResultCard } from "./components";
 
 function App() {
   return (
     <>
       <Title />
-      <div className="W-full max-w-[57.5rem] rounded-t-3xl p-8 bg-white">
+      <div className="W-full max-w-[57.5rem] flex  flex-col sm:flex-row  items-center gap-8   rounded-t-3xl p-8 bg-white">
         <Form />
+        <ResultCard />
       </div>
     </>
   );

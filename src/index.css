@@ -2,14 +2,18 @@
 
 @theme {
   --color-light-blue: #c5e4e7;
-  --color-piraymry: #26c2ae;
+  --color-primary: #26c2ae;
+  --color-primary-35: rgba(0, 71, 75, 0.35);
   --color-dark-green: #00474b;
   --color-text: #5e7a7d;
   --color-icon: #9ebbbd;
   --color-white: #fff;
-  --color-titel: #3d6666;
+  --color-title: #3d6666;
+  --color-light: #c5e4e7;
+  --color-red: #e17457;
+  --color-gray: #7f9d9f;
+  --color-secondr: #9fe8df;
 
-  /* fon-family */
   --default-font-family: "Space Mono", "Courier New", monospace;
 }
 
@@ -18,6 +22,30 @@
     @apply bg-light-blue text-base leading-[100%] text-text font-bold;
   }
   #root {
-    @apply flex flex-col  pt-[3.125rem] md:pt-[5rem] lg:pt-[10rem];
+    @apply flex flex-col items-center pt-[3rem] md:pt-[5rem] lg:pt-[10rem];
   }
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .input {
+    @apply text-right grow text-2xl text-dark-green rounded-[5px]
+           px-4.5 py-1.5 focus:outline-2 outline-primary;
+
+    &::placeholder {
+      @apply text-primary-35;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
