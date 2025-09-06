@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light-blue: #c5e4e7;
+  --color-piraymry: #26c2ae;
+  --color-dark-green: #00474b;
+  --color-text: #5e7a7d;
+  --color-icon: #9ebbbd;
+  --color-white: #fff;
+  --color-titel: #3d6666;
+
+  /* fon-family */
+  --default-font-family: "Space Mono", "Courier New", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-light-blue text-base leading-[100%] text-text font-bold;
+  }
+  #root {
+    @apply flex flex-col  pt-[3.125rem] md:pt-[5rem] lg:pt-[10rem];
+  }
+}
