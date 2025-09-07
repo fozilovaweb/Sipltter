@@ -32,7 +32,7 @@
 @layer components {
   .input {
     @apply text-right grow text-2xl text-dark-green rounded-[5px]
-           px-4.5 py-1.5 focus:outline-2 outline-primary;
+           px-4.5 py-1.5 focus:outline-2 outline-primary cursor-pointer;
 
     &::placeholder {
       @apply text-primary-35;
