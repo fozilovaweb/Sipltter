@@ -3,8 +3,6 @@ import { Input } from "./";
 import SelectTip from "./SelectTip";
 
 function Form({ values, setValues }) {
-  console.log(values);
-
   return (
     <div className="w-72 sm:w-80 md:95 flex flex-col gap-8 sm:gap-3">
       <Input label="Bill" icon="dollar" values={values} setValues={setValues} />

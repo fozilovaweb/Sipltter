@@ -8,7 +8,7 @@ const data = [
   { id: 5, value: 50, isSelected: false },
 ];
 
-function SelectTip({ setValues }) {  
+function SelectTip({ setValues }) {
   const [buttons, setButtons] = useState(data);
 
   const handleChange = (e) => {

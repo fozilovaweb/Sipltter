@@ -1,13 +1,18 @@
 import React from "react";
 
 const ResultCard = ({ values, setValues }) => {
-  const { bill, people, tip } = values;
+  const tipAmount =
+    values.people && values.bill
+      ? ((values.bill * values.tip) / 100 / values.people).toFixed(2)
+      : 0;
 
-  const tipAmount = people > 0 ? (bill * (tip / 100)) / people : 0;
-  const total = people > 0 ? bill / people + tipAmount : 0;
+  const total =
+    values.people && values.bill
+      ? ((values.bill * (1 + values.tip / 100)) / values.people).toFixed(2)
+      : 0;
 
   const handleReset = () => {
-    setValues({ bill: 0, people: 0, tip: 0 });
+    setValues({ bill: "", people: "", tip: 0 });
   };
 
   return (
@@ -17,19 +22,15 @@ const ResultCard = ({ values, setValues }) => {
           <p className="font-semibold">Tip Amount</p>
           <p className="text-gray">/ person</p>
         </div>
-        <p className="text-3xl font-bold text-primary">
-          ${tipAmount.toFixed(2)}
-        </p>
+        <p className="text-3xl font-bold text-primary">${tipAmount}</p>
       </div>
-
       <div className="flex justify-between items-center">
         <div>
           <p className="font-semibold">Total</p>
           <p className="text-gray">/ person</p>
         </div>
-        <p className="text-3xl font-bold text-primary">${total.toFixed(2)}</p>
+        <p className="text-3xl font-bold text-primary">${total}</p>
       </div>
-
       <button
         onClick={handleReset}
         className="mt-6 bg-primary text-dark-green py-2 rounded-lg w-full hover:bg-secondr"

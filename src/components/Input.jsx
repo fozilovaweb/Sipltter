@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 
-function Input({ label, icon, setValues }) {
+function Input({ label, icon, values, setValues }) {
   const [error, setError] = useState(false);
 
   const handleChange = (e) => {
-    if (e.target.value === "0") {
+    const val = e.target.value;
+
+    if (val === "0") {
       setError(true);
-      e.target;
     } else {
+      setError(false);
       switch (label) {
         case "Bill":
-          setValues((prev) => {
-            return { ...prev, bill: +e.target.value };
-          });
-          break
-          case "Number of People":
-            setValues((prev)=> {
-              return {...prev, people: +e.target.value }
-            })
-            break
+          setValues((prev) => ({ ...prev, bill: val }));
+          break;
+        case "Number of People":
+          setValues((prev) => ({ ...prev, people: val }));
+          break;
+        default:
+          break;
       }
-      setError(false);
     }
   };
 
@@ -32,6 +31,7 @@ function Input({ label, icon, setValues }) {
       </div>
       <input
         onChange={handleChange}
+        value={label === "Bill" ? values.bill : values.people}
         style={{
           backgroundColor: "var(--color-light)",
           backgroundImage: `url(./${icon}.svg)`,
@@ -41,7 +41,6 @@ function Input({ label, icon, setValues }) {
         className={`input ${error ? "outline-2 outline-red" : ""}`}
         type="number"
         placeholder="0"
-        name="bill"
       />
     </div>
   );
